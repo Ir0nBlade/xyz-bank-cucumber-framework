@@ -4,6 +4,7 @@ import com.bank.utility.Utility;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,15 +16,19 @@ public class AddCustomerPage extends Utility {
         PageFactory.initElements(driver, this);
     }
 
+    @CacheLookup
     @FindBy(xpath = "//input[@placeholder='First Name']")
     WebElement getFirstName;
 
+    @CacheLookup
     @FindBy(xpath = "//input[@placeholder='Last Name']")
     WebElement getLastName;
 
+    @CacheLookup
     @FindBy(xpath = "//input[@placeholder='Post Code']")
     WebElement getPostCode;
 
+    @CacheLookup
     @FindBy(xpath = "//button[@type='submit']")
     WebElement getAddCustomerBtn;
 

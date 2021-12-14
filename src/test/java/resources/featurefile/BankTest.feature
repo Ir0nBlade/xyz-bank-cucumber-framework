@@ -48,6 +48,9 @@ Feature: Bank Test
     When  I click on 'Customer Login' button
     And   I select 'Customer Name' from dropdown
     And   I click on 'Login' button
+    And   I click on 'Deposit' tab
+    And   I enter 'Deposit Amount' in Amount to be deposited field
+    And   I click on 'Deposit' button
     And   I click on 'Withdrawal' tab
     And   I enter withdrawal amount
     And   I click on withdrawal button

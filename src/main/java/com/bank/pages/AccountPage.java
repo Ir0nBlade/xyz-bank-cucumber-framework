@@ -4,6 +4,7 @@ import com.bank.utility.Utility;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,33 +16,43 @@ public class AccountPage extends Utility {
         PageFactory.initElements(driver, this);
     }
 
+    @CacheLookup
     @FindBy(xpath = "//button[contains(text(),'Logout')]")
     WebElement logoutBtn;
 
+    @CacheLookup
     @FindBy(xpath = "//label[contains(text(),'Your Name :')]")
     WebElement yourNameText;
 
+    @CacheLookup
     @FindBy(xpath = "//button[normalize-space()='Deposit']")
     WebElement depositTab;
 
+    @CacheLookup
     @FindBy(xpath = "//input[@placeholder='amount']")
     WebElement depositAmount;
 
+    @CacheLookup
     @FindBy(xpath = "//button[@type='submit']")
     WebElement submitBtn;
 
+    @CacheLookup
     @FindBy(xpath = "//span[contains(text(),'Deposit Successful')]")
     WebElement depositMessage;
 
+    @CacheLookup
     @FindBy(xpath = "//button[normalize-space()='Withdrawl']")
     WebElement withdrawlTab;
 
+    @CacheLookup
     @FindBy(xpath = "//input[@placeholder='amount']")
     WebElement withdrawAmount;
 
+    @CacheLookup
     @FindBy(xpath = "//button[normalize-space()='Withdraw']")
     WebElement withdrawButton;
 
+    @CacheLookup
     @FindBy(xpath = "//span[contains(text(),'Transaction successful')]")
     WebElement transactionSuccessText;
 
@@ -80,7 +91,8 @@ public class AccountPage extends Utility {
         log.info("Clicking on withdrawl tab " + withdrawlTab.toString());
     }
 
-    public void inputWithdrawAmount(String amount){
+    public void inputWithdrawAmount(String amount) throws InterruptedException {
+        Thread.sleep(1000);
         sendTextToElement(withdrawAmount, amount);
         log.info("Entering withdrawal amount " + withdrawAmount.toString());
 

@@ -124,7 +124,7 @@ public class BankTest {
     }
 
     @And("^I enter withdrawal amount$")
-    public void iEnterWithdrawalAmount() {
+    public void iEnterWithdrawalAmount() throws InterruptedException {
         new AccountPage().inputWithdrawAmount("50");
     }
 
